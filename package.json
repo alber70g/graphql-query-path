@@ -1,9 +1,24 @@
 {
-  "name": "typescript",
+  "name": "graphql-query-path",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "prepublish": "npm run test && npm run build"
+  },
   "dependencies": {
     "@types/graphql": "^14.2.3",
+    "readme-md-generator": "^0.6.1"
+  },
+  "peerDependencies": {
     "graphql": "^14.4.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.16",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
   }
 }
