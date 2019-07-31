@@ -1,0 +1,9 @@
+{
+  "name": "typescript",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@types/graphql": "^14.2.3",
+    "graphql": "^14.4.2"
+  }
+}
