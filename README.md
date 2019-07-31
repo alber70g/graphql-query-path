@@ -3,27 +3,27 @@
 <!-- ![Version](https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000) [![Twitter: alber70g](https://img.shields.io/twitter/follow/alber70g.svg?style=social)](https://twitter.com/alber70g) -->
 
 <p style="display: inline;">
-    <a href="https://github.com/badges/graphql-query-path/graphs/contributors" alt="Contributors">
-        <img src="https://img.shields.io/github/contributors/badges/graphql-query-path" /></a>
+    <a href="https://github.com/alber70g/graphql-query-path/graphs/contributors" alt="Contributors">
+        <img src="https://img.shields.io/github/contributors/alber70g/graphql-query-path" /></a>
     <!-- <a href="#backers" alt="Backers on Open Collective">
         <img src="https://img.shields.io/opencollective/backers/graphql-query-path" /></a> -->
     <!-- <a href="#sponsors" alt="Sponsors on Open Collective">
         <img src="https://img.shields.io/opencollective/sponsors/graphql-query-path" /></a> -->
-    <a href="https://github.com/badges/graphql-query-path/pulse" alt="Activity">
-        <img src="https://img.shields.io/github/commit-activity/m/badges/graphql-query-path" /></a>
-    <!-- <a href="https://circleci.com/gh/badges/graphql-query-path/tree/master">
-        <img src="https://img.shields.io/circleci/project/github/badges/graphql-query-path/master" alt="build status"></a> -->
-    <!-- <a href="https://circleci.com/gh/badges/daily-tests">
-        <img src="https://img.shields.io/circleci/project/github/badges/daily-tests?label=service%20tests"
+    <a href="https://github.com/alber70g/graphql-query-path/pulse" alt="Activity">
+        <img src="https://img.shields.io/github/commit-activity/m/alber70g/graphql-query-path" /></a>
+    <!-- <a href="https://circleci.com/gh/alber70g/graphql-query-path/tree/master">
+        <img src="https://img.shields.io/circleci/project/github/alber70g/graphql-query-path/master" alt="build status"></a> -->
+    <!-- <a href="https://circleci.com/gh/alber70g/daily-tests">
+        <img src="https://img.shields.io/circleci/project/github/alber70g/daily-tests?label=service%20tests"
             alt="service-test status"></a> -->
-    <!-- <a href="https://coveralls.io/github/badges/graphql-query-path">
-        <img src="https://img.shields.io/coveralls/github/badges/graphql-query-path"
+    <!-- <a href="https://coveralls.io/github/alber70g/graphql-query-path">
+        <img src="https://img.shields.io/coveralls/github/alber70g/graphql-query-path"
             alt="coverage"></a> -->
-    <!-- <a href="https://lgtm.com/projects/g/badges/graphql-query-path/alerts/">
-        <img src="https://img.shields.io/lgtm/alerts/g/badges/graphql-query-path"
+    <!-- <a href="https://lgtm.com/projects/g/alber70g/graphql-query-path/alerts/">
+        <img src="https://img.shields.io/lgtm/alerts/g/alber70g/graphql-query-path"
             alt="Total alerts"/></a> -->
-    <!-- <a href="https://github.com/badges/graphql-query-path/compare/gh-pages...master">
-        <img src="https://img.shields.io/github/commits-since/badges/graphql-query-path/gh-pages?label=commits%20to%20be%20deployed"
+    <!-- <a href="https://github.com/alber70g/graphql-query-path/compare/gh-pages...master">
+        <img src="https://img.shields.io/github/commits-since/alber70g/graphql-query-path/gh-pages?label=commits%20to%20be%20deployed"
             alt="commits to be deployed"></a> -->
     <a href="https://twitter.com/intent/follow?screen_name=graphql-query-path_io">
         <img src="https://img.shields.io/twitter/follow/alber70g?style=social&logo=twitter"
