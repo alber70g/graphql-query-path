@@ -1,10 +1,14 @@
 {
   "name": "graphql-query-path",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "author": {
+    "name": "alber70g",
+    "email": "alber70g@gmail.com"
+  },
   "scripts": {
     "test": "jest --coverage",
     "build": "tsc",
