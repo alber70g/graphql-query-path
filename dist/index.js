@@ -1,12 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPaths = function (ast) {
+var picomatch = require("picomatch");
+exports.getPathsFromAST = function (ast) {
     return ast.definitions.map(walkDefinitions);
 };
 var walkDefinitions = function (node) {
     if (node.kind === 'OperationDefinition') {
         return node.selectionSet.selections.reduce(createReduceSelections('/'), []);
     }
+};
+/**
+ * @param pattern glob pattern to match the result against
+ * @returns the matched entries in the array
+ */
+Array.prototype.contains = function (pattern) {
+    var matcher = picomatch(pattern);
+    return this.find(function (p) { return matcher(p); }) !== undefined;
+};
+exports.getPaths = function (info) {
+    return info.operation.selectionSet.selections.reduce(createReduceSelections('/'), []);
 };
 var createReduceSelections = function (parent) { return function (acc, curr) {
     if (curr.kind === 'Field') {
