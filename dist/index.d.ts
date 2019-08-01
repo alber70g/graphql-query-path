@@ -1,4 +1,4 @@
-import { DocumentNode, GraphQLResolveInfo } from 'graphql';
+import { DocumentNode, GraphQLResolveInfo } from "graphql";
 export declare const getPathsFromAST: (ast: DocumentNode) => (string[] | undefined)[];
 declare global {
     interface Array<T> {
