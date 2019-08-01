@@ -8,8 +8,7 @@
   "scripts": {
     "test": "jest --coverage",
     "build": "tsc",
-    "prepublish": "npm run test && npm run build",
-    "publish": "npm publish"
+    "prepublish": "npm run test && npm run build"
   },
   "dependencies": {
     "picomatch": "^2.0.7"
