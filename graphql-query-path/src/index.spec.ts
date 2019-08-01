@@ -48,7 +48,7 @@ test('two queries', () => {
   ]);
 });
 
-test('paths.contains with GraphQLResolveInfo single depth', async () => {
+test('getPaths with GraphQLResolveInfo single depth', async () => {
   const res = await graphql(
     buildSchema(
       `type Query {
@@ -74,8 +74,6 @@ test('paths.contains with GraphQLResolveInfo single depth', async () => {
       user(args: any, context: any, info: GraphQLResolveInfo) {
         const paths = getPaths(info);
         expect(paths).toEqual(['/user/', '/user/name']);
-        // expect(paths.contains('/user/posts/')).toEqual(false);
-        // expect(paths.contains('/user/**')).toBe(true);
         return {};
       },
     },
@@ -83,7 +81,7 @@ test('paths.contains with GraphQLResolveInfo single depth', async () => {
   expect(res.errors).toBeUndefined();
 });
 
-test('paths.contains with GraphQLResolveInfo double depth', async () => {
+test('getPaths with GraphQLResolveInfo double depth', async () => {
   const res = await graphql(
     buildSchema(
       `type Query {
@@ -117,7 +115,6 @@ test('paths.contains with GraphQLResolveInfo double depth', async () => {
           '/user/posts/',
           '/user/posts/title',
         ]);
-        // expect(paths.contains('/user/posts/')).toEqual(true);
         return {};
       },
     },

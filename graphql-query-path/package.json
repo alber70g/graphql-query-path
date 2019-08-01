@@ -1,0 +1,30 @@
+{
+  "name": "graphql-query-path",
+  "version": "1.1.0",
+  "private": false,
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": {
+    "name": "alber70g",
+    "email": "alber70g@gmail.com"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "tsc",
+    "prepublish": "npm run test && npm run build"
+  },
+  "peerDependencies": {
+    "graphql": "^14.4.2"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.2.3",
+    "@types/jest": "^24.0.16",
+    "@types/node": "^12.6.8",
+    "graphql": "^14.4.2",
+    "jest": "^24.8.0",
+    "readme-md-generator": "^0.6.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
+  }
+}

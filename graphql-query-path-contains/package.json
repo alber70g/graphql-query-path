@@ -1,6 +1,6 @@
 {
-  "name": "graphql-query-path",
-  "version": "1.1.0",
+  "name": "graphql-query-path-contains",
+  "version": "1.0.0",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",
@@ -15,6 +15,7 @@
     "prepublish": "npm run test && npm run build"
   },
   "dependencies": {
+    "graphql-query-path": "^1.1.0",
     "picomatch": "^2.0.7"
   },
   "peerDependencies": {
