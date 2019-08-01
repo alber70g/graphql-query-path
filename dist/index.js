@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var picomatch = require("picomatch");
 exports.getPathsFromAST = function (ast) {
     return ast.definitions.map(walkDefinitions);
 };
@@ -9,14 +8,23 @@ var walkDefinitions = function (node) {
         return node.selectionSet.selections.reduce(createReduceSelections("/"), []);
     }
 };
-/**
- * @param pattern glob pattern to match the result against
- * @returns the matched entries in the array
- */
-Array.prototype.contains = function (pattern) {
-    var byPattern = function (p) { return picomatch(pattern)(p); };
-    return this.find(byPattern) !== undefined;
-};
+// declare global {
+//   interface Array<T> {
+//     /**
+//      * @param pattern glob pattern to match the result against
+//      * @returns the matched entries in the array
+//      */
+//     contains(pattern: string): boolean;
+//   }
+// }
+// /**
+//  * @param pattern glob pattern to match the result against
+//  * @returns the matched entries in the array
+//  */
+// Array.prototype.contains = function(pattern: string) {
+//   const byPattern = (p: string) => picomatch(pattern)(p);
+//   return this.find(byPattern) !== undefined;
+// };
 exports.getPaths = function (info) {
     return info.operation.selectionSet.selections.reduce(createReduceSelections("/"), []);
 };
