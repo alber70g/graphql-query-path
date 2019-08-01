@@ -1,6 +1,6 @@
 {
   "name": "graphql-query-path-contains",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",
