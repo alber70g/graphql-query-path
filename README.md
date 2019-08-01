@@ -33,6 +33,14 @@
 A library that allows you to smartly execute database queries by looking at the
 field selection. This can mitigate the N+1 problem of GraphQL queries.
 
+This repo contains two projects:
+
+- **graphql-query-path** that has two functions: `getPaths` and
+  `getPathsFromAST`. They return a list of paths reflecting the graphql-query
+- **graphql-query-path-contains** the same as above and extends `Array` with
+  `contains(glob: string): boolean` method that you can use to do glob matching.
+  This one is ~17k bigger because of a dependency on `picomatch`.
+
 ## Usage
 
 Install the package
@@ -41,7 +49,7 @@ Install the package
 npm i graphql-query-path
 ```
 
-Use it in your ts or js project like:
+Use it in your graphql-resolver:
 
 ```js
 import { getPaths } from 'graphql-query-paths';
@@ -49,7 +57,8 @@ import { getPaths } from 'graphql-query-paths';
 // const { getPaths } = require('graphql-query-paths');
 const resolvers = {
   user(args, context, info) {
-    if (getPaths(info).find((p) => p.indexOf('/user/posts/') > -1)) {
+    const paths = getPaths(info);
+    if (paths.find((p) => p.indexOf('/user/posts/') > -1)) {
       db.getUsersWithPosts();
     } else {
       db.getUsers();
@@ -62,13 +71,17 @@ Use the extended version to match glob pattern with `contains` from
 `graphql-query-paths-contains`. This includes `picomatch` but increases the lib
 size by ~17k.
 
+```sh
+npm i graphql-query-paths-contains
+```
+
 ```js
 import { getPaths } from 'graphql-query-paths-contains';
 // or
 // const { getPaths } = require('graphql-query-paths-contains');
 const resolvers = {
   user(args, context, info) {
-    if (getPaths(info).contains("/users/posts/**"))) {
+    if (getPaths(info).contains("/users/posts/"))) {
       db.getUsersWithPosts();
     } else {
       db.getUsers();
@@ -76,6 +89,25 @@ const resolvers = {
   },
 };
 ```
+
+## Interface docs
+
+Library **graphql-query-paths**
+
+| function/argument                     | type                                                                         | description                                                                     |
+| ------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **getPathsFromAST(ast)**              | `string[][]`                                                                   | Returns a list of subqueries with paths reflected in the sub query per subquery |
+| <span style="align: right">ast</span> | `DocumentNode` [link](https://graphql.org/graphql-js/language/#parse)               | The DocumentNode from `import { parse } from 'graphql'`                         |
+| **getPaths(info)**                    | `string[]`                                                                     | Returns a list of paths reflected in the query                                  |
+| info                                  | `GraphQLResolveInfo` [link](https://graphql.org/graphql-js/type/#graphqlobjecttype) | The last argument in a resolver                                                 |
+
+Library **graphql-query-paths-contains** extends the library above with a
+`contains` function
+
+| function/argument                  | type    | description                                                                                                                                               |
+| ---------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Array.prototype.contains(glob)** | `boolean` | Extends Array with `contains` function. To know if a result contains a path you can execute `getPaths(info).contains("/user/**")`. This returns a boolean |
+| glob                               | `string`  | a string representing a glob to filter the array with                                                                                                     |
 
 ## Author
 
