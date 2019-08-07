@@ -42,6 +42,37 @@ This repo contains two projects:
   `contains(glob: string): boolean` method that you can use to do glob matching.
   This one is ~17k bigger because of a dependency on `picomatch`.
 
+## What is it
+
+Given the following query
+
+```graphql
+query {
+  user {
+    name
+    posts {
+      title
+      content
+    }
+  }
+}
+```
+
+the `getPaths(info)` returns the following array
+
+```js
+[
+  '/user',
+  '/user/name',
+  '/user/posts/',
+  '/user/posts/title',
+  '/user/posts/content',
+];
+```
+
+This array can give the information you need to execute a querybuilder or call
+other APIs in an efficient way.
+
 ## Usage
 
 Install the package
@@ -58,7 +89,24 @@ import { getPaths } from 'graphql-query-paths';
 // const { getPaths } = require('graphql-query-paths');
 const resolvers = {
   user(args, context, info) {
+    // for example this query comes in
+    // query: {
+    //   user {
+    //     name
+    //     posts {
+    //       title
+    //       content
+    //     }
+    //   }
+    // }
     const paths = getPaths(info);
+    // paths: [
+    //   '/user',
+    //   '/user/name',
+    //   '/user/posts/',
+    //   '/user/posts/title',
+    //   '/user/posts/content'
+    // ]
     if (paths.find((p) => p.indexOf('/user/posts/') > -1)) {
       db.getUsersWithPosts();
     } else {
@@ -109,6 +157,11 @@ Library **graphql-query-paths-contains** extends the library above with a
 | ---------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Array.prototype.contains(glob)** | `boolean` | Extends Array with `contains` function. To know if a result contains a path you can execute `getPaths(info).contains("/user/**")`. This returns a boolean |
 | glob                               | `string`  | a string representing a glob to filter the array with                                                                                                     |
+
+## Potential features
+
+- [ ] Create a `pathContains(info, pattern)` function that can lazily find
+      instead of extracting all paths firsts
 
 ## Author
 
