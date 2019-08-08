@@ -9,6 +9,10 @@
     "name": "alber70g",
     "email": "alber70g@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/alber70g/graphql-query-path"
+  },
   "scripts": {
     "test": "jest --coverage",
     "build": "tsc",
